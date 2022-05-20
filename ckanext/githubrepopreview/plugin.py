@@ -5,8 +5,12 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 import requests
 
-from lib import parse
-
+try:
+    from lib import parse
+except Exception as e:
+    print(e)
+    from .lib import parse
+    
 log = logging.getLogger('ckanext.repopreview')
 
 def is_repo(resource_id):
